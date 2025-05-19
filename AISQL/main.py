@@ -7,8 +7,10 @@ load_dotenv()
 
 MYSQL_USER = os.getenv("MYSQL_USER")
 MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
+OPENAI_API_KEY = os.getenv("API_KEY")
 MYSQL_HOST = 'localhost'
 TARGET_DB = 'COMBAT_ROBOT'
+
 
 
 
@@ -32,6 +34,11 @@ def execute_sql_file(cursor, sql_file_path):
         except Error as e:
                 print(e)
 
+def prompt_user_for_question(cursor):
+     user_prompt = input("Welcome to the Combat Robotics database. Ask any question about any Robots, Events, or Brackets!\n")
+     print(user_prompt)
+
+
 try:
     conn = get_connection()
     cursor = conn.cursor()
@@ -43,10 +50,9 @@ try:
     cursor.execute(f"CREATE DATABASE {TARGET_DB};")
     print(f"Created database '{TARGET_DB}'.")
     
+    #Reconnect to new db
     cursor.close()
     conn.close()
-
-    #Reconnect
     conn = get_connection(database=TARGET_DB)
     cursor = conn.cursor()
 
@@ -62,8 +68,11 @@ try:
 
     print("Tables filled with data")
 
+    prompt_user_for_question(cursor)
+
 except Error as e:
     print(e)
-finally:
-    cursor.close()
-    conn.close()
+
+
+cursor.close()
+conn.close()
