@@ -54,7 +54,13 @@ try:
     execute_sql_file(cursor, 'AISQL/create_db.sql')
     conn.commit()
 
-    print("Tables ready")
+    print("Tables created")
+
+    #Fill tables with data
+    execute_sql_file(cursor, 'AISQL/fill_data.sql')
+    conn.commit()
+
+    print("Tables filled with data")
 
 except Error as e:
     print(e)
