@@ -15,7 +15,7 @@ INSERT INTO Team (name, description) VALUES
 ('RoboLords', 'Precision and power.'),
 ('Plastic Punishers', 'Champions of 1lb plastic bots.'),
 ('Bug Crushers', 'We crush bugs, literally.'),
-('Salt City Smashers', 'Local legends from SLC.'),
+('Assault & Batteries', 'Student team from BYU'),
 ('Mini Mechs', 'Micro bots, mega damage.'),
 ('Fairy Flurry', 'Speedy 150g bots with attitude.'),
 ('Beetle Battalion', '3lb beetles bred for war.');
