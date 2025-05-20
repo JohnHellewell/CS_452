@@ -23,6 +23,11 @@ Question: "Which teams have less than three robots?"
 Answer: "The query result is blank."
 
 ### Single Domain Double Shot
-How many robots have greater than 60 rating points?
+Question: "How many robots have greater than 60 rating points?"
 
-Answer: There were no results for the given query.
+Answer: "There were no results for the given query."
+
+## Zero Shot vs Single Domain Double Shot
+I did not notice a difference between the results. They both gave accurate results except for when the query results were blank.
+This was surprising to me, because with the Single Domain Double Shot, I gave it an example of what to say if no results were given.
+*For example: for an empty SQL Result table, user question: "Which teams don't have any robots", the response could be "No teams had 0 robots"*
