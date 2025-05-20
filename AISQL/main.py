@@ -71,9 +71,14 @@ def get_gpt_query(prompt):
     return result
 
 def friendly_response(sql_results, query, user_question, strategy = 'zero_shot'):
-    prompt = f"{sql_results} \n\nTranslate the SQL table results above into a written answer. No additional commentary or chatter is needed. For context, here is the original question, and the SQL query I used to answer the question:\nOriginal Question: \" {user_question} \"\nSQL Query:\n {query}"
+    prompt = f"SQL RESULTS:{sql_results} \n\nTranslate the SQL table results above into a written answer. No additional commentary or chatter is needed. If the query result is blank, it is not by mistake. That was the query result." \
+            "For context, here is the original question, and the SQL query I used to answer the question:\nOriginal Question: \" {user_question} \"\nSQL Query:\n {query}"
 
-    return get_gpt_query(prompt)
+    if strategy=='zero_shot':
+        return get_gpt_query(prompt)
+    if strategy=='single_domain_double_shot':
+        prompt+="\nFor example: for an empty SQL Result table, user question: \"Which teams don't have any robots\", the response could be \"No teams had 0 robots\""
+        return get_gpt_query(prompt)
 
     
 def complete_question_cycle(cursor):
@@ -85,13 +90,13 @@ def complete_question_cycle(cursor):
 
     #send to OpenAI, print output
     openAI_sql_query = get_gpt_query(prompt)
-    #print("OpenAI Response:\n" + openAI_response)
+    #print(f"OpenAI Response:\n{openAI_response})
     cursor.execute(openAI_sql_query)
     query_results = cursor.fetchall()
-    #print("Answer:\n")
-    #for row in query_results:
-    #    print(row)
-    print(friendly_response(query_results, openAI_sql_query, user_input))
+    print("Answer:\n")
+    for row in query_results:
+        print(row)
+    print(f"Answer: {friendly_response(query_results, openAI_sql_query, user_input, 'zero_shot')}")
 
     
 
