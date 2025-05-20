@@ -1,0 +1,39 @@
+Example 1
+Q: "Which robots did not participate in the last event?"
+A: 
+"1. Zap Rat  
+2. Mite Fighter
+3. Rattletrap
+4. PolyPop
+5. ShredLite
+6. Jawbreaker
+7. War Drum
+8. Blade Beetle"
+
+Example 2
+Q: "Which robots are run by an event organizer?"
+A: 
+"1. Zap Rat  
+2. Rattletrap
+3. Jawbreaker"
+
+Example 3
+Q: "Which team has the worst scores on average"
+A: "The "Mini Mechs" have a value of 18."
+
+Example 4
+Q: "which robots have fought in all three events?"
+A: "Lil Thrasher, Phalanx, WedgeMe, Ram Raider" 
+
+Example 5
+Q: "What is the name of the event with the most plastic antweight participants?"
+A: "SLC Spring Bash 2025" 
+
+Example 6
+Q: "what is the team description for the team with the most points across all their robots?"
+A: "Student team from BYU"
+
+Example 7
+Q: "Which team has the highest ranked robots? What robots are they?"
+A: "The band "Assault & Batteries" has been associated with the albums "Phalanx," "Legion," and "Orbit."
+Note: it was bizzare that ChatGPT interpreted these as bands and albums, especially because I gave it the context of the original question
