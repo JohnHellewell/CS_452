@@ -112,8 +112,15 @@ try:
     #print(prompt)
 
     #send to OpenAI, print output
-    openAI_response = get_gpt_query(prompt)
-    print("OpenAI Response:\n" + openAI_response)
+    openAI_sql_query = get_gpt_query(prompt)
+    #print("OpenAI Response:\n" + openAI_response)
+
+    cursor.execute(openAI_sql_query)
+    query_results = cursor.fetchall()
+
+    print("Answer:\n")
+    for row in query_results:
+        print(row)
 
 except Error as e:
     print(e)
