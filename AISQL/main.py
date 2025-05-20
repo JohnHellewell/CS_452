@@ -69,7 +69,29 @@ def get_gpt_query(prompt):
 
     result = "".join(responseList)
     return result
+
+def friendly_response(sql_results, query, user_question, strategy = 'zero_shot'):
+    prompt = f"{sql_results} \n\nTranslate the SQL table results above into a written answer. No additional commentary or chatter is needed. For context, here is the original question, and the SQL query I used to answer the question:\nOriginal Question: \" {user_question} \"\nSQL Query:\n {query}"
+
+    return get_gpt_query(prompt)
+
     
+def complete_question_cycle(cursor):
+    #get prompt from user
+    user_input = prompt_user_for_question(cursor)
+
+    prompt = user_input_to_gpt_prompt(user_input)
+    #print(prompt)
+
+    #send to OpenAI, print output
+    openAI_sql_query = get_gpt_query(prompt)
+    #print("OpenAI Response:\n" + openAI_response)
+    cursor.execute(openAI_sql_query)
+    query_results = cursor.fetchall()
+    #print("Answer:\n")
+    #for row in query_results:
+    #    print(row)
+    print(friendly_response(query_results, openAI_sql_query, user_input))
 
     
 
@@ -105,23 +127,9 @@ try:
 
     print("Tables filled with data")
 
-    #get prompt from user
-    user_input = prompt_user_for_question(cursor)
-
-    prompt = user_input_to_gpt_prompt(user_input)
-    #print(prompt)
-
-    #send to OpenAI, print output
-    openAI_sql_query = get_gpt_query(prompt)
-    #print("OpenAI Response:\n" + openAI_response)
-
-    cursor.execute(openAI_sql_query)
-    query_results = cursor.fetchall()
-
-    print("Answer:\n")
-    for row in query_results:
-        print(row)
-
+    #get question from user, throw to GPT, return response to user
+    complete_question_cycle(cursor)
+    
 except Error as e:
     print(e)
 
