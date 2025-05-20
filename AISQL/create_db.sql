@@ -35,7 +35,8 @@ CREATE TABLE Robot (
     ranking_points INT DEFAULT 0,
     description VARCHAR(250),
     photo_url VARCHAR(100),
-    FOREIGN KEY (weight_class_id) REFERENCES weight_class (weight_class_id)
+    FOREIGN KEY (weight_class_id) REFERENCES weight_class (weight_class_id),
+    FOREIGN KEY (team_id) REFERENCES Team (team_id)
 );
 
 CREATE TABLE Event (
