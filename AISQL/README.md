@@ -1,6 +1,6 @@
 #Combat Robotics
 
-<img src="AISQL/COMBAT_ROBOT_DB.png">
+<img src="COMBAT_ROBOT_DB.png">
 
 ##Successful Queries:
 Question: "What are the best performing robots in each weight class? What kind of bots are they?"
