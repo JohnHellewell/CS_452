@@ -12,3 +12,9 @@ Answer: "The best-performing robots in each weight class and their types are as 
 - Beetleweight 3lb: War Drum, a double weapon bot with 35 ranking points.
 - Beetleweight 3lb: Orbit, a 4WD Beater Bar with a self-righting arm and a 4140 hardened steel spinner, also with 35 ranking points."
 
+## Unsuccessful Query:
+I did not have any poor answers, except for any zero cases. When the query results were zero, instead of answering "there were no robots" or "no teams matched that description", ChatGPT seemed to be confused. Even when I explicitly told it in the instruction line that "If the query result is blank, it is not by mistake. That was the query result." 
+
+Question: "Which teams have less than three robots?"
+
+Answer: "The query result is blank."
