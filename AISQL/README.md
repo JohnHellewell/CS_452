@@ -1,8 +1,8 @@
-#Combat Robotics
+# Combat Robotics
 
-<img src="COMBAT_ROBOT_DB.png">
+<img src="ROBOT_COMBAT_DB.png">
 
-##Successful Queries:
+## Successful Queries:
 Question: "What are the best performing robots in each weight class? What kind of bots are they?"
 
 Answer: "The best-performing robots in each weight class and their types are as follows:
