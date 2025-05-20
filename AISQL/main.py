@@ -71,7 +71,7 @@ def get_gpt_query(prompt):
     return result
 
 def friendly_response(sql_results, query, user_question, strategy = 'zero_shot'):
-    prompt = f"SQL RESULTS:{sql_results} \n\nTranslate the SQL table results above into a written answer. No additional commentary or chatter is needed. If the query result is blank, it is not by mistake. That was the query result." \
+    prompt = f"SQL RESULTS:{sql_results} \n\nTranslate the SQL table results above into a natural, written answer. No additional commentary or chatter is needed, and do not reference the SQL aspect of the question. Pretend that I don't even know about the SQL process, I ONLY want an answer to my original question. If the query result is blank, it is not by mistake. That was the query result." \
             "For context, here is the original question, and the SQL query I used to answer the question:\nOriginal Question: \" {user_question} \"\nSQL Query:\n {query}"
 
     if strategy=='zero_shot':
@@ -93,9 +93,9 @@ def complete_question_cycle(cursor):
     #print(f"OpenAI Response:\n{openAI_response})
     cursor.execute(openAI_sql_query)
     query_results = cursor.fetchall()
-    print("Answer:\n")
-    for row in query_results:
-        print(row)
+    #print("Answer:\n")
+    #for row in query_results:
+    #    print(row)
     print(f"Answer: {friendly_response(query_results, openAI_sql_query, user_input, 'zero_shot')}")
 
     
