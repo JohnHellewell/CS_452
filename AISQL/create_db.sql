@@ -23,7 +23,8 @@ CREATE TABLE Account_on_Team (
 CREATE TABLE weight_class (
     weight_class_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL,
-    description VARCHAR(250)
+    description VARCHAR(250),
+    CHECK (name IN ('Fairyweight 150g', 'Plastic Antweight 1lb', 'Beetleweight 3lb'))
 );
 
 CREATE TABLE Robot (
@@ -40,7 +41,8 @@ CREATE TABLE Robot (
 CREATE TABLE Event (
     event_id INT PRIMARY KEY AUTO_INCREMENT,
     event_organizer_id INT NOT NULL,
-    description VARCHAR(2000)
+    description VARCHAR(2000),
+    FOREIGN KEY (event_organizer_id) REFERENCES Account (account_id)
 );
 
 CREATE TABLE Bracket (

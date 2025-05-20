@@ -27,9 +27,9 @@ INSERT INTO Account_on_Team (account_id, team_id) VALUES
 
 -- Weight Classes
 INSERT INTO weight_class (name, description) VALUES
-('Fairyweight (150g)', 'Tiny but mighty bots.'),
-('Antweight Plastic (1lb)', '1lb bots made only of plastic.'),
-('Beetleweight (3lb)', 'Heavier bots with more power.');
+('Fairyweight 150g', 'Tiny but mighty bots.'),
+('Plastic Antweight 1lb', '1lb bots made only of plastic.'),
+('Beetleweight 3lb', 'Heavier bots with more power.');
 
 -- Events (All in SLC, same organizer)
 INSERT INTO Event (event_organizer_id, description) VALUES
