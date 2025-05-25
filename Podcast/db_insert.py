@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from datasets import load_dataset
 import pandas as pd
 
-from recommender.utils import fast_pg_insert
+from utils import fast_pg_insert
 
 # TODO: Read the embedding files
 
